@@ -31,7 +31,7 @@ export function createOrderLockupActions(page: Page) {
     async validateStatusBadge(status: OrderStatus) {
       const statusClasses = {
         APROVADO:{
-          background: 'bg-gree-100',
+          background: 'bg-green-100',
           text: 'text-green-700',
           icon: 'lucide-circle-check-big'
         },
@@ -41,9 +41,9 @@ export function createOrderLockupActions(page: Page) {
           icon: 'lucide-circle-x'
         },
         EM_ANALISE:{
-          background: 'bg-yellow-100',
-          text: 'text-yellow-700',
-          icon: 'lucide-circle-clock'
+          background: 'bg-amber-100',
+          text: 'text-amber-700',
+          icon: 'lucide-clock'
         },
       } as const
 
