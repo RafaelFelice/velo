@@ -1,45 +1,44 @@
 import { Page, expect } from '@playwright/test'
 
 export function createConfiguratorActions(page: Page) {
+  const optionalCheckbox = (name: string | RegExp) => page.getByRole('checkbox', { name })
 
-    return {
-        async open() {
-            await page.goto('/configure')
-        },
+  return {
+    async open() {
+      await page.goto('/configure')
+    },
 
-        async selectColor(name: string) {
-            await page.getByRole('button', { name }).click()
-        },
+    async selectColor(name: string) {
+      await page.getByRole('button', { name }).click()
+    },
 
-        async selectWheels(name: string | RegExp) {
-            await page.getByRole('button', { name }).click()
-        },
+    async selectWheels(name: string | RegExp) {
+      await page.getByRole('button', { name }).click()
+    },
 
-        async toggleOptional(name: string | RegExp) {
-            const optional = page.getByRole('checkbox', { name })
-            await optional.click()
-            await expect(optional).toBeChecked()
-        },
+    async expectPrice(price: string) {
+      const priceElement = page.getByTestId('total-price')
+      await expect(priceElement).toBeVisible()
+      await expect(priceElement).toHaveText(price)
+    },
 
-        async untoggleOptional(name: string | RegExp) {
-            const optional = page.getByRole('checkbox', { name })
-            await optional.click()
-            await expect(optional).not.toBeChecked()
-        },
+    async expectCarImageSrc(src: string | RegExp) {
+      const carImage = page.locator('img[alt^="Velô Sprint"]')
+      await expect(carImage).toHaveAttribute('src', src)
+    },
 
-        async clickCheckout() {
-            await page.getByRole('button', { name: 'Monte o Seu' }).click()
-        },
+    async checkOptional(name: string | RegExp) {
+      await expect(optionalCheckbox(name)).toBeVisible()
+      await optionalCheckbox(name).check()
+    },
 
-        async expectPrice(price: string) {
-            const priceElement = page.getByTestId('total-price')
-            await expect(priceElement).toBeVisible()
-            await expect(priceElement).toHaveText(price)
-        },
+    async uncheckOptional(name: string | RegExp) {
+      await expect(optionalCheckbox(name)).toBeVisible()
+      await optionalCheckbox(name).uncheck()
+    },
 
-        async expectCarImageSrc(src: string) {
-            const carImage = page.locator('img[alt^="Velô Sprint"]')
-            await expect(carImage).toHaveAttribute('src', src)
-        },
-    }
+    async finishConfigurator() {
+      await page.getByRole('button', { name: 'Monte o Seu' }).click()
+    },
+  }
 }
