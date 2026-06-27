@@ -1,5 +1,4 @@
 import { Page, expect } from '@playwright/test'
-import { text } from 'stream/consumers'
 
 export type OrderStatus = 'APROVADO' | 'REPROVADO' | 'EM_ANALISE'
 
@@ -25,7 +24,7 @@ export function createOrderLockupActions(page: Page) {
     },
 
     async open() {
-      await page.goto('http://localhost:5173/')
+      await page.goto('')
       const title = page.getByTestId('hero-section').getByRole('heading')
       await expect(title).toContainText('Velô Sprint')
       
