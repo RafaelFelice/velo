@@ -1,0 +1,44 @@
+{
+  "approved": {
+    "number": "VLO-SE4R01",
+    "status": "APROVADO",
+    "color": "Lunar White",
+    "wheels": "aero Wheels",
+    "customer": {
+      "name": "Fulano Silva",
+      "email": "fulano@qa.com",
+      "document": "123.456.789-00",
+      "phone": "(11)99999-9999"
+    },
+    "payment": "À Vista",
+    "total_price": "40000"
+  },
+  "reproved": {
+    "number": "VLO-SE4R02",
+    "status": "REPROVADO",
+    "color": "Midnight Black",
+    "wheels": "sport Wheels",
+    "customer": {
+      "name": "Stanley Copo",
+      "email": "stanley@teste.com",
+      "document": "123.456.789-00",
+      "phone": "(11)99999-9999"
+    },
+    "total_price": "40000",
+    "payment": "À Vista"
+  },
+  "analysis": {
+    "number": "VLO-SE4R03",
+    "status": "EM_ANALISE",
+    "color": "Glacier Blue",
+    "wheels": "aero Wheels",
+    "customer": {
+      "name": "Café Premium",
+      "email": "cafe@teste.com",
+      "document": "123.456.789-00",
+      "phone": "(11)99999-9999"
+    },
+    "total_price": "40000",
+    "payment": "À Vista"
+  }
+}

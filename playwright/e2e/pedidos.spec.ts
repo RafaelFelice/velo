@@ -1,6 +1,11 @@
+import { readFileSync } from 'node:fs'
 import { test, expect } from '../support/fixtures'
 import { generateOrderCode } from '../support/helpers'
 import type { OrderDetails } from '../support/actions/orderLockupActions'
+import { insertOrder, deleteOrderByNumber } from '../support/database/orderRepository'
+
+import testData from '../support/fixtures/orders.json' with { type: 'json' }
+
 
 test.describe('Consulta de Pedido', () => {
 
@@ -9,17 +14,11 @@ test.describe('Consulta de Pedido', () => {
   })
 
   test('deve consultar um pedido aprovado', async ({ app }) => {
-    const order = {
-      number: 'VLO-DK2CYM',
-      status: 'APROVADO' as const,
-      color: 'Lunar White',
-      wheels: 'aero Wheels',
-      customer: {
-        name: 'Fulano Silva',
-        email: 'fulano@qa.com'
-      },
-      payment: 'À Vista'
-    }
+
+    const order: OrderDetails = testData.approved as OrderDetails
+
+    await deleteOrderByNumber(order.number)
+    await insertOrder(order)
 
     await app.orderLockup.searchOrder(order.number)
     await app.orderLockup.validateOrderDetails(order)
@@ -28,17 +27,10 @@ test.describe('Consulta de Pedido', () => {
   })
 
   test('deve consultar um pedido reprovado', async ({ app }) => {
-    const order = {
-      number: 'VLO-5S63RM',
-      status: 'REPROVADO' as const,
-      color: 'Midnight Black',
-      wheels: 'sport Wheels',
-      customer: {
-        name: 'Stanley Copo',
-        email: 'stanley@teste.com'
-      },
-      payment: 'À Vista'
-    }
+    const order: OrderDetails = testData.reproved as OrderDetails
+
+    await deleteOrderByNumber(order.number)
+    await insertOrder(order)
 
     await app.orderLockup.searchOrder(order.number)
     await app.orderLockup.validateOrderDetails(order)
@@ -46,17 +38,10 @@ test.describe('Consulta de Pedido', () => {
   })
 
   test('deve consultar um pedido em analise', async ({ app }) => {
-    const order = {
-      number: 'VLO-BPVJIW',
-      status: 'EM_ANALISE' as const,
-      color: 'Glacier Blue',
-      wheels: 'aero Wheels',
-      customer: {
-        name: 'Café Premium',
-        email: 'cafe@teste.com'
-      },
-      payment: 'À Vista'
-    }
+    const order: OrderDetails = testData.analysis as OrderDetails
+
+    await deleteOrderByNumber(order.number)
+    await insertOrder(order)
 
     await app.orderLockup.searchOrder(order.number)
     await app.orderLockup.validateOrderDetails(order)
