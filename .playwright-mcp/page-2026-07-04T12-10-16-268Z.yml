@@ -1,0 +1,84 @@
+- generic [ref=f2e2]:
+  - region "Notifications (F8)":
+    - list
+  - region "Notifications alt+T"
+  - generic [ref=f2e3]:
+    - banner [ref=f2e4]:
+      - generic [ref=f2e5]:
+        - generic [ref=f2e6]:
+          - button [ref=f2e7] [cursor=pointer]:
+            - img [ref=f2e8]
+          - heading "Finalizar Pedido" [level=1] [ref=f2e10]
+        - link "Velô" [ref=f2e11] [cursor=pointer]:
+          - /url: /
+          - img "Velô" [ref=f2e12]
+    - main [ref=f2e13]:
+      - generic [ref=f2e14]:
+        - generic [ref=f2e16]:
+          - generic [ref=f2e17]:
+            - heading "Dados Pessoais" [level=2] [ref=f2e18]
+            - generic [ref=f2e19]:
+              - generic [ref=f2e20]:
+                - text: Nome
+                - textbox "Nome" [ref=f2e21]: Rafael
+              - generic [ref=f2e22]:
+                - text: Sobrenome
+                - textbox "Sobrenome" [ref=f2e23]: Silva
+              - generic [ref=f2e24]:
+                - text: Email
+                - textbox "Email" [ref=f2e25]
+                - paragraph [ref=f2e72]: Email inválido
+              - generic [ref=f2e26]:
+                - text: Telefone
+                - textbox "Telefone" [ref=f2e27]
+                - paragraph [ref=f2e73]: Telefone inválido
+              - generic [ref=f2e28]:
+                - text: CPF
+                - textbox "CPF" [ref=f2e29]
+                - paragraph [ref=f2e74]: CPF inválido
+              - generic [ref=f2e30]:
+                - text: Loja para Retirada
+                - combobox "Loja para Retirada" [ref=f2e31] [cursor=pointer]:
+                  - generic: Selecione uma loja
+                  - img [ref=f2e32]
+                - combobox [ref=f2e34]
+                - paragraph [ref=f2e75]: Selecione uma loja
+          - generic [ref=f2e35]:
+            - heading "Forma de Pagamento" [level=2] [ref=f2e36]
+            - generic [ref=f2e37]:
+              - button "À Vista R$ 40.000,00" [ref=f2e38] [cursor=pointer]:
+                - paragraph [ref=f2e39]: À Vista
+                - paragraph [ref=f2e40]: R$ 40.000,00
+              - button "Financiamento 12x de R$ 3.400,00" [ref=f2e41] [cursor=pointer]:
+                - paragraph [ref=f2e42]: Financiamento
+                - paragraph [ref=f2e43]: 12x de R$ 3.400,00
+          - generic [ref=f2e45]:
+            - checkbox "Li e aceito os Termos de Uso e Política de Privacidade" [ref=f2e46] [cursor=pointer]
+            - checkbox
+            - generic [ref=f2e47]:
+              - generic [ref=f2e48] [cursor=pointer]:
+                - text: Li e aceito os
+                - link "Termos de Uso" [ref=f2e49]:
+                  - /url: /termos
+                - text: e
+                - link "Política de Privacidade" [ref=f2e50]:
+                  - /url: /privacidade
+              - paragraph [ref=f2e76]: Aceite os termos
+          - button "Confirmar Pedido" [active] [ref=f2e51] [cursor=pointer]
+        - generic [ref=f2e53]:
+          - heading "Resumo" [level=2] [ref=f2e54]
+          - img "Velô Sprint" [ref=f2e56]
+          - heading "Velô Sprint" [level=3] [ref=f2e57]
+          - list [ref=f2e58]:
+            - listitem [ref=f2e59]:
+              - generic [ref=f2e60]: Cor
+              - generic [ref=f2e61]: Glacier Blue
+            - listitem [ref=f2e62]:
+              - generic [ref=f2e63]: Interior
+              - generic [ref=f2e64]: carbon black
+            - listitem [ref=f2e65]:
+              - generic [ref=f2e66]: Rodas
+              - generic [ref=f2e67]: aero Wheels
+          - generic [ref=f2e69]:
+            - generic [ref=f2e70]: Total
+            - generic [ref=f2e71]: R$ 40.000,00

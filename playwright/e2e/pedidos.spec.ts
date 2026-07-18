@@ -1,4 +1,3 @@
-import { readFileSync } from 'node:fs'
 import { test, expect } from '../support/fixtures'
 import { generateOrderCode } from '../support/helpers'
 import type { OrderDetails } from '../support/actions/orderLockupActions'

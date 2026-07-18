@@ -1,7 +1,7 @@
 import { db } from './database'
 import { OrderTable } from './schema'
 
-import { OrderDetails } from '../actions/orderLookupActions'
+import { OrderDetails } from '../actions/orderLockupActions'
 
 import crypto from 'crypto'
 
@@ -39,4 +39,8 @@ export async function insertOrder(order: OrderDetails) {
 
 export async function deleteOrderByNumber(orderNumber: string) {
   await db.deleteFrom('orders').where('order_number', '=', orderNumber).execute()
+}
+
+export async function deleteOrdersByCustomerEmail(email: string) {
+  await db.deleteFrom('orders').where('customer_email', '=', email).execute()
 }
