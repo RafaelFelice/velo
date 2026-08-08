@@ -122,10 +122,8 @@ test.describe('Checkout', () => {
 
   test.describe('Pagamento e Confirmação', () => {
 
-    test.beforeEach(async ({ page, app }) => {
-      await page.goto('/')
-      await page.getByRole('link', { name: /Configure Agora/i }).click()
-
+    test.beforeEach(async ({ app }) => {
+      await app.hero.open()
     })
 
     test('deve concluir pedido à vista com sucesso', async ({ page, app }) => {
